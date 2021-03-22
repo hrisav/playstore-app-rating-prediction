@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Playstore App Rating Prediction</title>
+
+</head>
+
+
+<body>
+<div class="login">
+    <div class="banner">
+        <h1>Playstore App Rating Prediction</h1>
+    </div>
+    <p> Hey! This model has been created to predict rating for any App. <br>
+    </p>
+    <br><br>
+
+    <form action="{{ url_for('predict')}}" method="post">
+        <label for="App_Name">App Name</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="App_Name" />
+        <br><br>
+        <label for="Type"> Type </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label class="radio-inline">
+            <input type="radio" name="Type">Free
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="Type">Paid
+        </label>
+        <br><br>
+        <label for="Category"> Category </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <select id="Category" name="Category">
+            <option disabled selected value> -- Select an option -- </option>
+            <option value="ART_AND_DESIGN">ART_AND_DESIGN</option>
+            <option value="AUTO_AND_VEHICLES">AUTO_AND_VEHICLES</option>
+            <option value="BEAUTY">BEAUTY</option>
+            <option value="BOOKS_AND_REFERENCE">BOOKS_AND_REFERENCE</option>
+            <option value="BUSINESS">BUSINESS</option>
+            <option value="COMICS">COMICS</option>
+            <option value="COMMUNICATION">COMMUNICATION</option>
+            <option value="DATING">DATING</option>
+            <option value="EDUCATION">EDUCATION</option>
+            <option value="ENTERTAINMENT">ENTERTAINMENT</option>
+            <option value="EVENTS">EVENTS</option>
+            <option value="FINANCE">FINANCE</option>
+            <option value="FOOD_AND_DRINK">FOOD_AND_DRINK</option>
+            <option value="HEALTH_AND_FITNESS">HEALTH_AND_FITNESS</option>
+            <option value="HOUSE_AND_HOME">HOUSE_AND_HOME</option>
+            <option value="LIBRARIES_AND_DEMO">LIBRARIES_AND_DEMO</option>
+            <option value="LIFESTYLE">LIFESTYLE</option>
+            <option value="GAME">GAME</option>
+            <option value="FAMILY">FAMILY</option>
+            <option value="MEDICAL">MEDICAL</option>
+            <option value="SOCIAL">SOCIAL</option>
+            <option value="SHOPPING">SHOPPING</option>
+            <option value="PHOTOGRAPHY">PHOTOGRAPHY</option>
+            <option value="SPORTS">SPORTS</option>
+            <option value="TRAVEL_AND_LOCAL">TRAVEL_AND_LOCAL</option>
+            <option value="TOOLS">TOOLS</option>
+            <option value="PERSONALIZATION">PERSONALIZATION</option>
+            <option value="PRODUCTIVITY">PRODUCTIVITY</option>
+            <option value="PARENTING">PARENTING</option>
+            <option value="WEATHER">WEATHER</option>
+            <option value="VIDEO_PLAYERS">VIDEO_PLAYERS</option>
+            <option value="NEWS_AND_MAGAZINES">NEWS_AND_MAGAZINES</option>
+            <option value="MAPS_AND_NAVIGATION">MAPS_AND_NAVIGATION</option>
+        </select>
+        <br><br>
+        <label for="Content_Rating"> Content Rating </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <select id="Content_Rating" name="Content_Rating">
+            <option disabled selected value> -- Select an option -- </option>
+            <option value="Everyone">Everyone</option>
+            <option value="Teen">Teen</option>
+            <option value="Mature 17+">Mature 17+</option>
+            <option value="Everyone 10+">Everyone 10+</option>
+        </select>
+        <br><br>
+        <label for="Installs"> Number of Installs </label> &nbsp;
+        <select id="Installs" name="Installs">
+            <option disabled selected value> -- Select an option -- </option>
+            <option value="1">1</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="500">500</option>
+            <option value="1000">1000</option>
+            <option value="5000">5000</option>
+            <option value="10000">10000</option>
+            <option value="50000">50000</option>
+            <option value="100000">100000</option>
+            <option value="500000">500000</option>
+            <option value="1000000">1000000</option>
+            <option value="5000000">5000000</option>
+            <option value="10000000">10000000</option>
+            <option value="50000000">50000000</option>
+            <option value="100000000">100000000</option>
+            <option value="500000000">500000000</option>
+            <option value="1000000000">1000000000</option>
+        </select>
+        <br><br>
+        <label for="Price">Price</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="Price" placeholder="Eg: $1.29" required="required" />
+        <br><br>
+        <label for="Reviews">Number of Reviews</label> &nbsp;&nbsp;
+        <input type="text" name="Reviews" required="required" />
+        <br><br>
+        <label for="Size_Upd">Size</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="Size_Upd" placeholder="Eg: 20 (in MB)" required="required" />
+        <br><br>
+        <label for="Last_Updated_Days">Last Updated</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="Last_Updated_Days" placeholder="Eg: January 1, 2018" required="required" />
+        <br><br>
+        <label for="Current_Ver_Upd">Current Version</label> &nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="Current_Ver_Upd" placeholder="Eg: 1.1 or 2.3 or etc" required="required" />
+        <br><br>
+        <label for="Android_Ver_Upd">Android Version</label> &nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="Android_Ver_Upd" placeholder="Eg: From 1 to 8" required="required" />
+        <br><br>
+
+        <p style="text-align:center;"><input type="submit", value = "Submit" style="height:30px; width:70px"></p>
+    </form>
+
+    <br>
+
+    <br><br><h3>{{ prediction_text }}</h3>
+</div>
+
+</body>
+
+</html>
+
+
+<style type="text/css">
+
+.login {
+height: 650px;
+  width: 650px;
+  border: 1px solid black ;
+  background-color: #E9ECE9;
+  opacity: 0.98;
+  padding: 20px 50px;
+}
+         body {
+                  width: 70vw;
+                  height: 100vh;
+                  display: flex;
+                  overflow: hidden;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                  font-family: "Lucida Console", "Courier New", monospace;
+                  font-size: 17px;
+                  background-image: url(https://wallpaperaccess.com/full/1657583.jpg);
+                  background-position: center; /* Center the image */
+                  background-repeat: no-repeat; /* Do not repeat the image */
+                  background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+  </style>
