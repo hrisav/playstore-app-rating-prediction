@@ -39,15 +39,29 @@ Deployment on AWS EC2
 - Connect to server using Powershell and run app.py file.
 - Run the link on browser (http://ec2-3-17-70-132.us-east-2.compute.amazonaws.com:5000/) to work on the model.
 
-<img src="images/ec2instance.JPG" width="500">
+<img src="images/ec2instance.JPG" width="700">
 
-<img src="images/awsconnect.JPG" width="500">
+<img src="images/awsconnect.JPG" width="700">
+
+Steps Involved
+-
+
+- Understanding Data
+- Data Cleaning
+- Handling Missing Values
+- Exploratory Analysis (Univariate, Bivariate)
+- Hypothesis Testing (Chi Square, T Test, Anova)
+- Encoding
+- Linear Regression Assumptions
+- Model Building
+- UI Building
+- Deployment
 
 Output
 -
 
 UI was built and we will have to put in details for any app whose rating we would like to predict. Here we have filled in with details of Cricinfo.
 
-<img src="images/1.jpg" width="500">
+<img src="images/1.jpg" width="700">
 
-<img src="images/2.jpg" width="500">
+<img src="images/2.jpg" width="700">
